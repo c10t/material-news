@@ -1,5 +1,8 @@
 import * as React from 'react'
 
-const IndexPage: React.FC = () => <h1>hello, world</h1>
+import withRoot from '../with-root'
+import IndexPageTemplate from '../templates/index-page'
+
+const IndexPage: React.FC = () => <IndexPageTemplate />
 
 export default IndexPage
