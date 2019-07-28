@@ -6,7 +6,12 @@ const topstories = () => `${BASE_URL}/topstories.json`
 const item = id => `${BASE_URL}/item/${id}.json`
 
 const readAndWriteItem = async id => {
-  await axios.get(item(id)).then(res => res.data).then(data => console.log(data.title, data.score))
+  console.log(`start: ${id}`)
+  axios.get(item(id))
+    .then(res => res.data)
+    .then(data => JSON.stringify(data))
+    .then(json => fs.writeFile(`${__dirname}/data/${id}.json`, json))
+  console.log(`done : ${id}`)
 }
 
 const main = async () => {
