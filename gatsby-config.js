@@ -2,7 +2,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `TopStories`, // a fixed string
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -9,6 +9,7 @@ const readAndWriteItem = async id => {
   console.log(`start: ${id}`)
   axios.get(item(id))
     .then(res => res.data)
+    .then(data => ({ ...data, id: `${data.id}`, kids: data.kids.map(kid => `${kid}`) })) // "id" must be a string in Gatsby
     .then(data => JSON.stringify(data))
     .then(json => fs.writeFile(`${__dirname}/data/${id}.json`, json))
   console.log(`done : ${id}`)
