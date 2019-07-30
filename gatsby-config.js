@@ -1,4 +1,7 @@
 module.exports = {
+  siteMetadata: {
+    title: `Material News - ${new Date()}`
+  },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,

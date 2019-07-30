@@ -1,10 +1,10 @@
 export interface Story {
-  id: number
+  id: string // actually number
   deleted?: boolean
   type: 'story'
   by: string
   time: number
-  kids: number[]
+  kids: string[] // actually number[]
   url: string
   score: number
   title: string
