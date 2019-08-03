@@ -3,24 +3,31 @@ import * as React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
-import NewsCard from './news-card'
+import NewsList from './news-list'
 import { Story } from '../interfaces/item'
-import { divide } from '../services/small-utils'
 
 export interface Props {
   stories: Story[]
 }
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1
+  },
+  newsList: {
+    backgroundColor: "#eeeeee"
+  }
+}))
+
 const NewsGrid: React.FC<Props> = (props) => {
   const { stories } = props
+  const classes = useStyles()
   return (
-    <React.Fragment>
-      {divide(stories, 3).map(row => (
-        <Grid container spacing={2}>
-          {row.map(story => <Grid item xs={4}><NewsCard story={story} /></Grid>)}
-        </Grid>
-      ))}
-    </React.Fragment>
+    <Grid container className={classes.root} justify="center" spacing={2}>
+      <Grid item xs={8} className={classes.newsList}>
+        <NewsList stories={stories} />
+      </Grid>
+    </Grid>
   )
 }
 
